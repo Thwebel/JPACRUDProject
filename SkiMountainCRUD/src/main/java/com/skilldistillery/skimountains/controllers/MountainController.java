@@ -17,14 +17,14 @@ public class MountainController {
 	@Autowired
 	private MountainDAO dao;
 	
+	// Home
 	@RequestMapping(path={"/", "home.do"})
 	public String index(Model model) {
 		
-		model.addAttribute("mountain", dao.findById(1));
-		
 		return "index";
 	}
-	
+// Get	
+	// Get Id
 	@RequestMapping(path={"findById.do"})
 	public String getMt(int id, Model model) {
 		
@@ -33,6 +33,7 @@ public class MountainController {
 		return "mountains/singleMt";
 	}
 	
+	// Get All
 	@RequestMapping(path={"getAllMt.do"})
 	public String geAllMt(Model model) {
 		
@@ -40,7 +41,32 @@ public class MountainController {
 		
 		return "mountains/allMt";
 	}
+// Create
+	// Create Mountain Form
+	@RequestMapping(path={"createForm.do"})
+	public String getCreateForm(int id, Model model) {
+		
+		model.addAttribute("difficulty", SlopeDifficulty.values());
+		
+		return "mountains/updateMt";
+	}
 	
+	// Create Mountain
+	@RequestMapping(path={"create.do"})
+	public String createMountain(Mountain mt, Model model, RedirectAttributes redir) {
+		
+		redir.addFlashAttribute("mt", dao.findById(mt.getId()));
+		
+		return "redirect:created.do";
+	}
+	// Display Create Mountain
+	@RequestMapping(path="created.do")
+	public String mountainCreated() {
+		
+		return "mountains/singleMt";
+	}
+// Update	
+	// Update Mountain Form
 	@RequestMapping(path={"updateForm.do"})
 	public String getUpdateForm(int id, Model model) {
 		
@@ -50,6 +76,7 @@ public class MountainController {
 		return "mountains/updateMt";
 	}
 	
+	// Update Mountain
 	@RequestMapping(path="update.do", method = RequestMethod.POST)
 	public String updateMt(Model model, Mountain mt, RedirectAttributes redir) {
 		
@@ -60,11 +87,23 @@ public class MountainController {
 		return "redirect:updated.do";
 	}
 	
+	// Display Updated Mountain
 	@RequestMapping(path="updated.do", method = RequestMethod.GET)
-	public String mountainUpDated() {
+	public String mountainUpdated() {
 		
 		return "mountains/singleMt";
 	}
-	
+
+// Delete
+	// Delete Mountain
+	@RequestMapping(path="delete.do")
+	public String deleteMountain(int id, Model model) {
+		
+		Mountain mt = dao.findById(id);
+		
+		model.addAttribute("deleted", dao.deleteMt(mt));
+		
+		return "mountains/mountainDeleted";
+	}
 	
 }

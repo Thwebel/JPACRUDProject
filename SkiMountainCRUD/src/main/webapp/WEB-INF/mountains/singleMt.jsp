@@ -17,7 +17,31 @@
   </head>
   <body>
     <h1>Mountains!</h1>
+    <!-- Enclosing Choose -->
+    <c:choose>
+    
+    <%-- When No Film Found --%>
+   		<c:when test="${empty mt or mt == null}"> 
+    		No Mountain Found with that Id
+    	</c:when>
+    	
+    <%-- Otherwise Display Mountain --%>
+    <c:otherwise>
 	<p>${mt.toString() }</p>
+	
+	<a class="btn btn-primary" href="updateForm.do?id=${mt.id }" role="button">Update</a>
+	<br>
+	<form action="delete.do" method="GET">
+		<input type="hidden" name="id" value="${mt.id}"/> 
+		<input type="submit" value="Delete" onclick="return confirm('Are you sure? This CANNOT be undone.'); "/>
+	</form>
+	
+	
+	<%-- End Enclosing Otherwise --%>
+	</c:otherwise>
+	<%-- End Enclosing Choose --%>
+	</c:choose>
+	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
