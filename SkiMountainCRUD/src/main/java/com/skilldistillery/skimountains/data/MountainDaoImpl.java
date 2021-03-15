@@ -41,6 +41,7 @@ public class MountainDaoImpl implements MountainDAO {
 	public Mountain addNewMt(Mountain newMt) {
 		
 		em.persist(newMt);
+		em.flush();
 		
 		return newMt;
 	}

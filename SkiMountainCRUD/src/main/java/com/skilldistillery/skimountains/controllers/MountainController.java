@@ -44,19 +44,21 @@ public class MountainController {
 // Create
 	// Create Mountain Form
 	@RequestMapping(path={"createForm.do"})
-	public String getCreateForm(int id, Model model) {
+	public String getCreateForm(Model model) {
 		
 		model.addAttribute("difficulty", SlopeDifficulty.values());
 		
-		return "mountains/updateMt";
+		return "mountains/createMt";
 	}
 	
 	// Create Mountain
 	@RequestMapping(path={"create.do"})
 	public String createMountain(Mountain mt, Model model, RedirectAttributes redir) {
+		Mountain newMt;
+		newMt = dao.addNewMt(mt);
 		
-		redir.addFlashAttribute("mt", dao.findById(mt.getId()));
-		
+		redir.addFlashAttribute("mt", dao.findById(newMt.getId()));
+		System.out.println(newMt.getId());
 		return "redirect:created.do";
 	}
 	// Display Create Mountain

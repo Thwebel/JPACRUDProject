@@ -12,25 +12,40 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   	<!-- personal CSS -->
+	<link href="index.css" rel="stylesheet">  
     <title>Shred the Gnar</title>
   </head>
   <body>
-    <h1>Mountains!</h1>
-    <!-- Find By Id -->
-	<form action="findById.do">
-		<label for="getId">Mountain Id:</label>
-		<input type = "number" min=0 id="getId" name="id" required/>
-		<input type = "submit" value="Search Id"/>
-	</form>
-	<!-- Display All -->
-	<form action="getAllMt.do">
-		<input type = "submit" value="Display Mountains"/>
-	</form>
-	<!-- Add A Mountain -->
-	<form action="createMt.do">
-		<input type ="submit" value="Add Mountain"/>
-	</form>
-	
+  
+  
+ <section class="home" id="home">
+ 	<div class="max-width">
+		<div class="home-content">
+		<div class="text-1">
+			My name is
+		</div>
+		<div class="text-2">
+			Thomas Webel
+		</div>
+		<div class="text-3">
+		 	and I'm the best skier on the mountain
+		</div>
+		<!-- Display All -->
+			<a href="getAllMt.do">Display All Mountains in DB</a>
+			<br>
+		<!-- Add A Mountain -->
+			<a href="createForm.do">Add Mountain</a>
+			<div>
+    	<!-- Find By Id -->
+        	<form action="findById.do" >
+				<input type = "submit" value="Search Id"/>
+				<input type = "number" min=0 id="getId" name="id" placeholder="Id"  required/>
+			</form>
+			</div>
+        </div>
+	</div>
+	</section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
