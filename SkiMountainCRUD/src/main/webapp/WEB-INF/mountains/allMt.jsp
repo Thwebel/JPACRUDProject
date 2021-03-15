@@ -23,16 +23,19 @@
 			<th>Id</th>
 			<th>Name</th>
 		</tr>
-	<c:forEach var="mt" items="${mountains }" >
-		<tr>
-			<td>
-				${mt.id }
-			</td>
-			<td>
-				<a href="findById.do?id=${mt.id }">${mt.mountainName }</a>
-			</td>
-		</tr>
-	</c:forEach>
+		<c:forEach var="mt" items="${mountains }" >
+			<tr>
+				<td>
+					${mt.id }
+				</td>
+				<td>
+					<a href="findById.do?id=${mt.id }">${mt.mountainName }</a>
+				</td>
+				<td>
+					<a class="btn btn-primary" href="updateForm.do?id=${mt.id }" role="button">Update</a>
+				</td>
+			</tr>
+		</c:forEach>
 	</table>
 
     <!-- Optional JavaScript -->
