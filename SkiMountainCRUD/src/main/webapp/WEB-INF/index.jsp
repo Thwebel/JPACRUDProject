@@ -22,6 +22,9 @@
 	<input type = "number" min=0 id="getId" name="id"/>
 	<input type = "submit" value="Search Id"/>
 	</form>
+	<form action="getAllMt.do">
+	<input type = "submit" value="Display Mountains"/>
+	</form>
 	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

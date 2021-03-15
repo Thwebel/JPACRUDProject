@@ -16,8 +16,27 @@ public class MountainController {
 	@RequestMapping(path={"/", "home.do"})
 	public String index(Model model) {
 		
-		model.addAttribute("moutain", dao.findById(1));
+		model.addAttribute("mountain", dao.findById(1));
 		
 		return "index";
 	}
+	
+	@RequestMapping(path={"findById.do"})
+	public String getMt(int id, Model model) {
+		
+		model.addAttribute("mt", dao.findById(id));
+		
+		return "mountains/singleMt";
+	}
+	
+	@RequestMapping(path={"getAllMt.do"})
+	public String geAllMt(Model model) {
+		
+		model.addAttribute("mountains", dao.findAll());
+		
+		return "mountains/allMt";
+	}
+	
+	
+	
 }

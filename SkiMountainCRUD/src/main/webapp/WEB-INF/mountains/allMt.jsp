@@ -13,10 +13,27 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Majestic Peaks</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>Mts!</h1>
+    
+    <table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+		</tr>
+	<c:forEach var="mt" items="${mountains }" >
+		<tr>
+			<td>
+				${mt.id }
+			</td>
+			<td>
+				<a href="findById.do?id=${mt.id }">${mt.mountainName }</a>
+			</td>
+		</tr>
+	</c:forEach>
+	</table>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
