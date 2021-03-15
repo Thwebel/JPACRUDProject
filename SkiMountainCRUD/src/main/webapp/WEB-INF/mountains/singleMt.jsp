@@ -17,7 +17,6 @@
   </head>
   <body>
     <h1>Mountains!</h1>
-    <p>${moutain}</p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
