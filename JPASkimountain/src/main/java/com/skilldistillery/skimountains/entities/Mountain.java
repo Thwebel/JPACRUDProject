@@ -28,7 +28,7 @@ public class Mountain {
 	@Column(name = "skiable_area")
 	private Integer skiableArea;
 	
-	private byte lifts;
+	private Byte lifts;
 	
 	private Short runs;
 	
@@ -44,7 +44,7 @@ public class Mountain {
 	@Column(name = "night_skiing")
 	private Boolean nightSkiing;
 	
-	@Column(columnDefinition = "enum('Expert','Advanced','Intermediate','Beginner')")
+	@Column(name = "most_represented_difficulty", columnDefinition = "enum('Expert','Advanced','Intermediate','Beginner')")
 	@Enumerated(EnumType.STRING)
 	private SlopeDifficulty difficulty;
 	

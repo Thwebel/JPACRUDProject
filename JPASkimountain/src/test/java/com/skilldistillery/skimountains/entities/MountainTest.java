@@ -1,6 +1,7 @@
 package com.skilldistillery.skimountains.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -48,6 +49,26 @@ class MountainTest {
 	void test() {
 		assertNotNull(mountain);
 		assertEquals("Sugarloaf", mountain.getMountainName());
+	}
+	@Test
+	@DisplayName("Test Full Mountain Mapping")
+	void test1() {
+		assertNotNull(mountain);
+		assertEquals("Sugarloaf", mountain.getMountainName());
+		assertEquals("Maine", mountain.getState());
+		assertEquals(2820, mountain.getVertical());
+		assertEquals(4237, mountain.getTopElevation());
+		assertEquals(1417, mountain.getBaseElevation());
+		assertEquals(1240, mountain.getSkiableArea());
+		assertEquals(14, mountain.getLifts());
+		assertEquals((short)160, mountain.getRuns());
+		assertEquals((short)200, mountain.getAvgSnowFall());
+		assertEquals("Rangely-Stratton", mountain.getMountainRange());
+		assertEquals((short)1950, mountain.getStartYear());
+		assertEquals(false, mountain.getNightSkiing());
+		assertEquals(SlopeDifficulty.Intermediate, mountain.getDifficulty());
+		assertEquals(true, mountain.getHaveShredded());
+		assertEquals(null, mountain.getPersonalLog());
 	}
 
 }
