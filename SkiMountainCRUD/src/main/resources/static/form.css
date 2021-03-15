@@ -17,6 +17,7 @@ input[type=submit] {
   border-radius: 4px;
   align-content: center;
   cursor: pointer;
+  transition: all 0.3s ease;
 
 } 
 

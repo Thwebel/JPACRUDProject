@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.info{
+    display: flex;
+    background: url("img/OtherMt.jpg") no-repeat center;
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'serif', sans-serif;
+}
+.info .max-width{
+    margin: auto 0 auto 30px;
+}
+.info-text{
+	text-shadow: 2px 2px black;
+}
+h3, h5{
+	text-shadow: 2px 2px black;
+}
+.info form{
+	background: none;
+}
+.info a, .info input[type=submit]{
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+} 
+.info a:hover{
+    color: crimson;
+    background: none;
+}
+.info input[type=submit]:hover{
+    color: crimson;
+    background: none;
+}

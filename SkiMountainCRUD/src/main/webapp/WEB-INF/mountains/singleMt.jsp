@@ -12,22 +12,32 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <title>${mt.mountainName}</title>
+	<!-- single display css -->
+	<link href="singleDisplay.css" rel="stylesheet">
+    <title>${mt.mountainName }</title>
   </head>
   <body>
-    <h1>Mountains!</h1>
     <!-- Enclosing Choose -->
     <c:choose>
     
-    <%-- When No Film Found --%>
+    <%-- When No Mountain Found --%>
    		<c:when test="${empty mt or mt == null}"> 
     		No Mountain Found with that Id
     	</c:when>
     	
     <%-- Otherwise Display Mountain --%>
     <c:otherwise>
-	<p>${mt.toString() }</p>
+    
+   	<section class="info" id="info">
+   	<div class="max-width">
+		<h3>${mt.mountainName },</h3><h5>Summit Elevation: ${mt.topElevation }, Base Elevation ${mt.baseElevation }</h5>
+		<div class="info-text">
+		 Nestled in the ${mt.mountainRange } within ${mt.state}, this mountain boasts an impressive ${mt.vertical} vertical feet. <br>
+		 ${mt.mountainName}'s ${mt.skiableArea} arces of skiable terrain is kept fluffy during the winter months with an average snow fall of ${mt.avgSnowFall }inches per season. <br>
+		 Skiers and riders have been enjoying this sleek slopes since ${mt.startYear}, and with ${mt.lifts} lifts and ${mt.runs } trails it is sure the gift of good snow will keep on giving.<br>
+		</div>
+	
+	
 	
 	<a class="btn btn-primary" href="updateForm.do?id=${mt.id }" role="button">Update</a>
 	<br>
@@ -35,7 +45,8 @@
 		<input type="hidden" name="id" value="${mt.id}"/> 
 		<input type="submit" value="Delete" onclick="return confirm('Are you sure? This CANNOT be undone.'); "/>
 	</form>
-	
+	</div>
+	</section>
 	
 	<%-- End Enclosing Otherwise --%>
 	</c:otherwise>
