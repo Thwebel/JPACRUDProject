@@ -11,5 +11,11 @@ public interface MountainDAO {
 	List<Mountain> findAll();
 	
 	Mountain findBySearch(String search);
+	
+	Mountain addNewMt(Mountain newMt);
+	
+	Mountain updateMt(Mountain updatedMt);
+	
+	boolean deleteMt(Mountain targetMt);
 
 }

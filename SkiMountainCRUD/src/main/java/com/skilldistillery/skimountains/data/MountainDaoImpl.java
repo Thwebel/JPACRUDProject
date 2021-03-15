@@ -24,14 +24,44 @@ public class MountainDaoImpl implements MountainDAO {
 
 	@Override
 	public List<Mountain> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String getAllMt = "SELECT mt FROM Mountain mt";
+		
+		List<Mountain> mountains = em.createQuery(getAllMt, Mountain.class).getResultList();
+		
+		return mountains;
 	}
 
 	@Override
 	public Mountain findBySearch(String search) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Mountain addNewMt(Mountain newMt) {
+		
+		em.persist(newMt);
+		
+		return newMt;
+	}
+
+	@Override
+	public Mountain updateMt(Mountain updatedMt) {
+		
+		return em.merge(updatedMt);
+	}
+
+	@Override
+	public boolean deleteMt(Mountain targetMt) {
+		boolean deleted = false;
+		
+		if(targetMt != null) {
+			em.remove(targetMt);
+		}
+		
+		deleted = !em.contains(targetMt);
+		
+		return deleted;
 	}
 
 }

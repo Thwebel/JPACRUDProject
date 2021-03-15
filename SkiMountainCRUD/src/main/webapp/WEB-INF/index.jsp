@@ -17,8 +17,12 @@
   </head>
   <body>
     <h1>Mountains!</h1>
-    <p>${moutain}</p>
-
+	<form action="findById.do">
+	<label for="getId">Mountain Id:</label>
+	<input type = "number" min=0 id="getId" name="id"/>
+	<input type = "submit" value="Search Id"/>
+	</form>
+	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
